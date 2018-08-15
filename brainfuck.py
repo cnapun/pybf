@@ -41,7 +41,7 @@ interpret = (
                      '+': lambda p, i: (p, i+1, data.__setitem__(p, (data[p]+1)%256))[:-1],
                      '-': lambda p, i: (p, i+1, data.__setitem__(p, (data[p]-1)%256))[:-1],
                      '.': lambda p, i: (p, i+1, sys.stdout.write(chr(data[p])))[:-1],
-                     ',': lambda p, i: (p, i+1, data.__setitem__(p, ord(sys.stdin.buffer.read(1))))[:-1],
+                     ',': lambda p, i: (p, i+1, data.__setitem__(p, ord(sys.stdin.buffer.read(1) or sys.exit(0))))[:-1],
                      '[': lambda p, i: (p, bp[i] + 1 if not data[p] else i+1, ),
                      ']': lambda p, i: (p, bp[i] + 1 if data[p] else i+1, ),
                  }[ins[i]](ptr, i))

@@ -16,7 +16,3 @@ that the former takes an option `--data-size` which sets the maximum size of the
 allowing for something like 
 * `python3 brainfuck.py examples/rot13.bf --data-size 100 < test.txt`.
 
-## Things that aren't perfect
-* If input is piped from a file, an error will be thrown once there is nothing left to read. I don't know a way around this (without try catch)
-* `brainfuck.py` isn't really just one line, and the argparse is outside of the function (but the core functionality is the `interpret` lambda function)
-* Only works on Python3 (tested with 3.6.3)
