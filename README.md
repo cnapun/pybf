@@ -14,5 +14,12 @@ Stdin can either be piped from a file, or entered manually (enter triggers code 
 The only difference between calling `brainfuck.py` and `brainfuck_recursive.py` is 
 that the former takes an option `--data-size` which sets the maximum size of the data array,
 allowing for something like 
-* `python3 brainfuck.py examples/rot13.bf --data-size 100 < test.txt`.
+* `python3 brainfuck.py examples/rot13.bf --data-size 100 < test.txt`
 
+## Sample Outputs
+```
+> python3 brainfuck.py examples/rot13.bf --data-size 100 < test.txt                                                
+avxvy
+> python3 brainfuck.py examples/helloworld.bf                                                                     
+hello world
+```
