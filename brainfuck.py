@@ -1,8 +1,9 @@
+from argparse import ArgumentParser
 import sys
 from itertools import repeat, takewhile
 
 interpret = (
-    lambda inst: (
+    lambda inst, data_size: (
          lambda ins: (
                  lambda state: (
                      lambda f: [ i for i in
@@ -16,7 +17,7 @@ interpret = (
              {
                  'ptr':0,
                  'i':0,
-                 'data':[0]*100000,
+                 'data':[0]*data_size,
                  'bp':(
                      (lambda f: f(f, [], {}, 0)[0][1])(
                          lambda g, bs, bp, ix: (
@@ -49,6 +50,10 @@ interpret = (
 )
 
 if __name__=='__main__':
-    with open(sys.argv[1]) as f:
+    parser = ArgumentParser(description='Interpret brainfuck code')
+    parser.add_argument('file', type=str, help='File to run')
+    parser.add_argument('--data-size', type=int, default=30000, help='Size of the data array. Defaults to 30000')
+    args = parser.parse_args()
+    with open(args.file) as f:
         s = f.read()
-    interpret(s)
+    interpret(s, args.data_size)
