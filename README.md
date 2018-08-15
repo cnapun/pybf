@@ -22,4 +22,14 @@ allowing for something like
 avxvy
 > python3 brainfuck.py examples/helloworld.bf                                                                     
 hello world
+> echo 1234 | python3 brainfuck.py examples/numwarp.bf
+       \
+      \/\
+    /\
+     /\
+  /\  /
+   /
+ \ \/
+  \
+ 
 ```
